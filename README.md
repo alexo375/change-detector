@@ -68,11 +68,15 @@ $$X = [I^{(1)}, I^{(2)}] \in \mathbb{R}^{H \times W \times 2}$$
 $$\hat{Y} = f_\theta(X), \quad \hat{Y} \in [0, 1]^{H \times W}$$
 
 Итоговая карта классов $M(x,y) \in \{0, 70, 255\}^{H \times W}$ формируется по правилу:
-$$M(x,y) = \begin{cases} 
-255, & P_\theta(x,y) \ge \tau \text{ и } (x,y) \in \Omega \quad \text{(семантическое изменение)},\\
-70, & P_\theta(x,y) < \tau \text{ и } (x,y) \in \Omega \quad \text{(стабильный фон)},\\
+
+$$
+M(x,y) = \begin{cases} 
+255, & P_{\theta}(x,y) \ge \tau \text{ и } (x,y) \in \Omega \quad \text{(семантическое изменение)}, \\
+70, & P_{\theta}(x,y) < \tau \text{ и } (x,y) \in \Omega \quad \text{(стабильный фон)}, \\
 0, & (x,y) \notin \Omega \quad \text{(нет данных)}.
-\end{cases}$$
+\end{cases}
+$$
+
 где $\tau$ — настраиваемый порог бинаризации.
 
 ---
